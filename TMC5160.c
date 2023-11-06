@@ -1,31 +1,13 @@
 /*******************************************************************************
-  Project: stealthRocker Mini-TMCL (for stealthRocker TMCM-1211)
-
-  Module:  TMC5160.c
-           TMC5160 library
-
-   Copyright (C) 2018 TRINAMIC Motion Control GmbH & Co KG
-                      Waterloohain 5
-                      D - 22769 Hamburg, Germany
-                      http://www.trinamic.com/
-
-   This program is free software; you can redistribute it and/or modify it
-   freely.
-
-   This program is distributed "as is" in the hope that it will be useful, but
-   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-   or FITNESS FOR A PARTICULAR PURPOSE.
+* Copyright © 2018 TRINAMIC Motion Control GmbH & Co. KG
+* (now owned by Analog Devices Inc.),
+*
+* Copyright © 2023 Analog Devices Inc. All Rights Reserved. This software is
+* proprietary & confidential to Analog Devices, Inc. and its licensors.
 *******************************************************************************/
 
 /**
-  \file TMC5160.c
-  \author Trinamic Motion Control GmbH & Co KG
-  \version 1.00
-
-  \brief TMC5160 Motor driver functions
-
-  This file provides all functions needed for easy
-  access to the TMC5160 stepper motor driver IC.
+  This file provides all functions needed for easy access to the TMC5160 stepper motor driver IC.
 */
 
 #include <stdlib.h>
@@ -1124,7 +1106,7 @@ void InitMotorDrivers(void)
     WriteTMC5160Datagram(i, TMC5160_SHORT_CONF, 0x00, 0x00, 0x03, 0x06);
     WriteTMC5160Datagram(i, TMC5160_DRV_CONF, 0x00, 0x01, 0x00, 0x0A);
     WriteTMC5160Datagram(i, TMC5160_IHOLD_IRUN, 0x00, 0x07, MotorConfig[i].IRun/8, MotorConfig[i].IStandby/8);
-    WriteTMC5160Int(i, TMC5160_PWMCONF, 0xC40C001E);  //Reset-Default f�r PWMCONF
+    WriteTMC5160Int(i, TMC5160_PWMCONF, 0xC40C001E);  //Reset-Default für PWMCONF
     LastTOffSetting[i]=GetTMC5160ChopperTOff(i);
     DriverDisableFlag[i]=FALSE;
 
